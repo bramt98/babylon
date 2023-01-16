@@ -1,0 +1,50 @@
+<!-- Modal -->
+<div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Menu item toevoegen</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="updatemenu.php" method="POST">
+                    <div class="form-floating mb-3">
+                        <label for="postDish">Gerecht</label>
+                        <input required type="text" class="form-control" name="postDish"/>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label for="postPrice">Prijs: </label>
+                        <input required type="text" class="form-control" name="postPrice"/>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label for="postIngredient">Ingrediënt: </label>
+                        <input type="text" class="form-control" name="postIngredient"/>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label for="postAllergie">Allergie: </label>
+                        <input type="text" class="form-control" name="postAllergie"/>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label for="postCategory">Categorie: </label>
+                        <select class="form-control" name="postCategory">
+                            <?php foreach ($categories as $category) { ?>
+                            <option><?= $category->name ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <div class="d-grid">
+                        <button class="d-none" id="createPostForm" name="createPost"
+                                class="btn btn-success btn-block text-uppercase fw-bold" type="submit"></button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Sluiten</button>
+                <button id="createPostModal" type="button" class="btn btn-primary">Voeg item toe</button>
+            </div>
+        </div>
+    </div>
+</div>
